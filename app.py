@@ -1,4 +1,18 @@
+# --- 1. LES IMPORTATIONS (Tout en haut) ---
 import streamlit as st
+from gtts import gTTS
+import os
+
+# --- 2. LA FONCTION AUDIO ---
+def prononcer_anglais(texte):
+    tts = gTTS(text=texte, lang='en')
+    tts.save("prononciation.mp3")
+    audio_file = open("prononciation.mp3", "rb")
+    audio_bytes = audio_file.read()
+    st.audio(audio_bytes, format="audio/mp3")
+
+# --- 3. LE RESTE DE TON CODE (Titre, boutons, etc.) ---
+st.title("Mon App English Pro 🎙️")
 import random
 
 # Configuration Mobile
